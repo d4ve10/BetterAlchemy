@@ -1,0 +1,5 @@
+name: BetterAlchemy
+version: '${project.version}'
+main: de.d4ve10.betteralchemy.BetterAlchemy
+api-version: 1.18
+description: Adding better potions with more variety of ingredients
