@@ -50,10 +50,10 @@ public class BookOfAlchemie implements CustomItem {
     private void initializeBook() {
         this.pages.add(
                 getTitle("Creating a new potion") +
-                    getList("Place a water cauldron above a heat source",
-                            "Throw the needed ingredients into the cauldron",
-                            "Right-click the cauldron with a stick to create the potion",
-                            "Extract the potions with empty bottles")
+                        getList("Place a water cauldron above a heat source",
+                                "Throw the needed ingredients into the cauldron",
+                                "Right-click the cauldron with a stick to create the potion",
+                                "Extract the potions with empty bottles")
         );
         this.pages.add(
                 getTitle("Potion of Corruption") +
