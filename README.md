@@ -1,6 +1,6 @@
 # BetterAlchemy Minecraft Plugin
 This Plugin adds additional potions with more complex ingredients
-![Potions](potions.png)
+![Potions](potions.png?raw=true)
 ---
 ## Creating a new potion
 1. Place a water cauldron above a heat source (either fire or campfire)
