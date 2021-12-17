@@ -1,6 +1,7 @@
 package de.d4ve10.betteralchemy.potion;
 
 import de.d4ve10.betteralchemy.BetterAlchemy;
+import de.d4ve10.betteralchemy.CustomItem;
 import de.d4ve10.betteralchemy.utils.PotionUtils;
 import org.bukkit.*;
 import org.bukkit.boss.BarColor;
@@ -20,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-public abstract class CustomPotion {
+public abstract class CustomPotion implements CustomItem {
 
     private static final Map<String, Map<LivingEntity, BukkitRunnable>> activeThreads = new HashMap<>();
     private static final Map<String, Map<LivingEntity, BukkitRunnable>> activeParticles = new HashMap<>();

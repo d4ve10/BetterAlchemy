@@ -59,11 +59,11 @@ public final class BetterAlchemy extends JavaPlugin {
     }
 
     private void createBookRecipe() {
-        BookOfAlchemie book = new BookOfAlchemie();
+        CustomItem book = new BookOfAlchemie();
         ItemStack bookItem = book.create();
         if (bookItem == null)
             return;
-        ShapelessRecipe recipe = new ShapelessRecipe(new NamespacedKey(this, "BookOfAlchemie"), bookItem);
+        ShapelessRecipe recipe = new ShapelessRecipe(new NamespacedKey(this, book.getClass().getSimpleName()), bookItem);
         recipe.addIngredient(Material.WRITABLE_BOOK);
         recipe.addIngredient(Material.AMETHYST_SHARD);
         recipe.addIngredient(Material.BONE);
