@@ -5,10 +5,7 @@ import de.d4ve10.betteralchemy.potion.CustomPotion;
 import de.d4ve10.betteralchemy.utils.PotionUtils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.ThrownPotion;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.*;
@@ -69,6 +66,14 @@ public class EntityListener implements Listener {
     public void onEntityDeath(EntityDeathEvent event) {
         LivingEntity entity = event.getEntity();
         PotionUtils.removeAllEffects(entity);
+    }
+
+    @EventHandler
+    public void onCreeperExplode(EntityExplodeEvent event) {
+        if (!(event.getEntity() instanceof Creeper))
+            return;
+        Creeper creeper = (Creeper) event.getEntity();
+        PotionUtils.removeAllEffects(creeper);
     }
 
     @EventHandler

@@ -110,7 +110,6 @@ public class PotionOfCorruption extends ListenerPotion {
                 Object type = PotionEffectType.getByName(key.getKey().replace("corruption", ""));
                 if (type == null)
                     type = key.getKey().replace("corruption", "");
-                System.out.println("Found: " + type);
                 removeCorruptionEffect(entity, type, true);
             }
         }
@@ -190,7 +189,6 @@ public class PotionOfCorruption extends ListenerPotion {
         if (corruptionHandler.hasCorruptionEffect())
             return;
         playerCorruptedEffects.get(entity).put(corruptedEffect, effect instanceof PotionEffect ? ((PotionEffect) effect).getType() : effect);
-        System.out.println("Corruption: " + effect + " -> " + corruptedEffect);
         corruptionHandler.setCorruptionEffectSetting();
         corruptionHandler.removeNormalEffect();
         corruptionHandler.applyCorruptedEffect();
@@ -198,8 +196,6 @@ public class PotionOfCorruption extends ListenerPotion {
 
     private void removeCorruptionEffect(@NotNull LivingEntity entity, @NotNull Object effect, boolean changeEffect) {
         Object corruptedEffect = getPlayerCorruptionEffect(entity, effect);
-        System.out.println("REMOVE EFFECT: " + effect + " -> " + corruptedEffect);
-        System.out.println(entity);
         CorruptionHandler corruptionHandler = new CorruptionHandler(entity, effect, corruptedEffect);
         if (!corruptionHandler.hasCorruptionEffect())
             return;

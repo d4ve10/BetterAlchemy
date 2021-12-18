@@ -140,17 +140,11 @@ public class CorruptionHandler {
     }
 
     private void initializeNormalEffect(@NotNull CustomPotion customPotion) {
-        this.removeNormalEffect = () -> {
-            System.out.println("Removing " + customPotion.getClass().getSimpleName() + " from " + entity.getName());
-            customPotion.removeEffect(entity);
-        };
+        this.removeNormalEffect = () -> customPotion.removeEffect(entity);
     }
 
     private void initializeNormalEffect(@NotNull PotionEffectType corruptionEffectType) {
-        this.removeNormalEffect = () -> {
-            System.out.println("Removing " + corruptionEffectType + " from " + entity.getName());
-            entity.removePotionEffect(corruptionEffectType);
-        };
+        this.removeNormalEffect = () -> entity.removePotionEffect(corruptionEffectType);
     }
 
     private void initializeCorruptionEffect(@Nullable CustomPotion corruptionPotion) {
@@ -158,7 +152,6 @@ public class CorruptionHandler {
             return;
         this.corruptionKeyName = corruptionPotion.getClass().getSimpleName();
         this.applyCorruptionEffect = () -> {
-            System.out.println("Applying " + corruptionPotion.getClass().getSimpleName() + " to " + entity.getName());
             PotionData potionData = new PotionData(corruptionPotion.getPotionData().getName(), duration, amplifier);
             corruptionPotion.setPotionData(potionData);
             corruptionPotion.applyEffect(entity);
@@ -169,10 +162,7 @@ public class CorruptionHandler {
         if (corruptionEffectType == null)
             return;
         this.corruptionKeyName = corruptionEffectType.getName();
-        this.applyCorruptionEffect = () -> {
-            System.out.println("Applying " + corruptionEffectType + " to " + entity.getName());
-            entity.addPotionEffect(new PotionEffect(corruptionEffectType, duration * 20, amplifier));
-        };
+        this.applyCorruptionEffect = () -> entity.addPotionEffect(new PotionEffect(corruptionEffectType, duration * 20, amplifier));
     }
 
 

@@ -39,6 +39,8 @@ public class PotionOfHostility extends CustomPotion {
         entity.getWorld().getNearbyEntities(entity.getLocation(), 100, 20, 100).forEach(nearbyEntity -> {
             if (!(nearbyEntity instanceof Mob))
                 return;
+            if (entity == nearbyEntity)
+                return;
             Mob mob = (Mob) nearbyEntity;
             if (!PotionUtils.isHostile(mob))
                 return;
